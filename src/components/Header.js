@@ -1,5 +1,12 @@
 import React from 'react';
-import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+  Platform,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS, dummyData, FONTS, icons, SIZES} from '../constants';
 
@@ -39,7 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50,
     paddingHorizontal: SIZES.padding,
-    marginTop: 20,
+    marginTop: Platform.OS === 'ios' ? 60 : 20,
     alignItems: 'center',
   },
   leftComponentWrap: {
