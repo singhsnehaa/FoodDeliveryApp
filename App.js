@@ -1,23 +1,13 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
-
-import {MainLayout} from './src/screens';
-import CustomeDrawer from './src/navigation/CustomeDrawer';
-
-const Stack = createStackNavigator();
+import RootNavigator from './src/navigation';
+import {Provider} from 'react-redux';
+import {store} from './src/redux/store';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        initialRouteName={'Home'}>
-        <Stack.Screen name="Home" component={CustomeDrawer} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <RootNavigator />
+    </Provider>
   );
 };
 
