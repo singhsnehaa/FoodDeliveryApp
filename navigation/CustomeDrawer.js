@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Animated,
-} from 'react-native';
+import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -98,23 +91,18 @@ const CustomeDrawerContent = ({navigation}) => {
 };
 
 const CustomeDrawer = () => {
-  const [progress, setProgress] = useState(new Animated.Value(0));
-
   return (
     <View style={{flex: 1, backgroundColor: COLORS.primary}}>
       <Drawer.Navigator
-        initialRouteName="MainLayout"
         screenOptions={{
+          initialRouteName: 'MainLayout',
+          // headerShown: false,
           drawerType: 'slide',
           drawerStyle: styles.drawerStyle,
           overlayColor: 'transparent',
+          sceneContainerStyle: {backgroundColor: 'transparent'},
         }}
-        sceneContainerStyle={{backgroundColor: 'transparent'}}
         drawerContent={props => {
-          setTimeout(() => {
-            setProgress(props.progress);
-          }, 0);
-
           return <CustomeDrawerContent navigation={props.navigation} />;
         }}>
         <Drawer.Screen name="MainLayout">
@@ -129,7 +117,7 @@ export default CustomeDrawer;
 const styles = StyleSheet.create({
   drawerStyle: {
     flex: 1,
-    width: '100%', //'65%'
+    width: '65%', //'65%'
     paddingRight: 20,
     backgroundColor: 'transparent',
   },
