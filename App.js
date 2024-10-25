@@ -2,8 +2,8 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {MainLayout} from './screens';
-import CustomeDrawer from './navigation/CustomeDrawer';
+import {MainLayout} from './src/screens';
+import CustomeDrawer from './src/navigation/CustomeDrawer';
 
 const Stack = createStackNavigator();
 
