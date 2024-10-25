@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-} from '@react-navigation/drawer';
-import {MainLayout} from '../screens';
-import {COLORS, FONTS, SIZES, constants, icons, dummyData} from '../constants';
+  COLORS,
+  FONTS,
+  SIZES,
+  constants,
+  icons,
+  dummyData,
+} from '../../constants';
+import {reset, changeDrawerTab} from '../../redux/features/tabsSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
-const Drawer = createDrawerNavigator();
-
-const CustomeDrawerItem = ({label, icon}) => {
+const CustomeDrawerItem = ({label, icon, onPress}) => {
   return (
-    <TouchableOpacity
-      style={styles.drawerMenuBox}
-      onPress={() => console.log(menu)}>
+    <TouchableOpacity style={styles.drawerMenuBox} onPress={onPress}>
       <Image
         source={icon}
         style={{height: 20, width: 20, tintColor: COLORS.white}}
@@ -26,6 +27,10 @@ const CustomeDrawerItem = ({label, icon}) => {
 };
 
 const CustomeDrawerContent = ({navigation}) => {
+  const {selectedDrawerTab} = useSelector(state => state.tabs);
+  const dispatch = useDispatch();
+
+  console.log('selectedDrawerTab=>', selectedDrawerTab);
   return (
     <DrawerContentScrollView
       scrollEnabled={true}
@@ -61,7 +66,14 @@ const CustomeDrawerContent = ({navigation}) => {
         </TouchableOpacity>
         {/* Drawer items */}
         <View style={{flex: 1, marginTop: SIZES.padding}}>
-          <CustomeDrawerItem label={constants.screens.home} icon={icons.home} />
+          <CustomeDrawerItem
+            label={constants.screens.home}
+            icon={icons.home}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.notification));
+              navigation.navigate('MainLayout');
+            }}
+          />
           <CustomeDrawerItem
             label={constants.screens.my_wallet}
             icon={icons.wallet}
@@ -90,37 +102,8 @@ const CustomeDrawerContent = ({navigation}) => {
   );
 };
 
-const CustomeDrawer = () => {
-  return (
-    <View style={{flex: 1, backgroundColor: COLORS.primary}}>
-      <Drawer.Navigator
-        screenOptions={{
-          initialRouteName: 'MainLayout',
-          // headerShown: false,
-          drawerType: 'slide',
-          drawerStyle: styles.drawerStyle,
-          overlayColor: 'transparent',
-          sceneContainerStyle: {backgroundColor: 'transparent'},
-        }}
-        drawerContent={props => {
-          return <CustomeDrawerContent navigation={props.navigation} />;
-        }}>
-        <Drawer.Screen name="MainLayout">
-          {props => <MainLayout {...props} />}
-        </Drawer.Screen>
-      </Drawer.Navigator>
-    </View>
-  );
-};
-
-export default CustomeDrawer;
+export default CustomeDrawerContent;
 const styles = StyleSheet.create({
-  drawerStyle: {
-    flex: 1,
-    width: '65%', //'65%'
-    paddingRight: 20,
-    backgroundColor: 'transparent',
-  },
   DrawerContentBox: {
     flex: 1,
     paddingHorizontal: SIZES.radius,

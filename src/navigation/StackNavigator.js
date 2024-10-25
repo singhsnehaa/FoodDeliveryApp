@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import CustomeDrawer from '../navigation/CustomeDrawer';
+import CustomeDrawer from './drawer/CustomeDrawer';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
