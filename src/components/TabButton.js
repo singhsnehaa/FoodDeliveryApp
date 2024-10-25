@@ -11,7 +11,14 @@ import {useNavigation} from '@react-navigation/native';
 import {COLORS, dummyData, FONTS, icons, SIZES} from '../constants';
 import Animated from 'react-native-reanimated';
 
-const TabButton = ({label, icon, isFocused, onPress}) => {
+const TabButton = ({
+  label,
+  icon,
+  isFocused,
+  onPress,
+  outerContainerStyle,
+  innerContainerStyle,
+}) => {
   return (
     <TouchableWithoutFeedback
       style={[
@@ -19,12 +26,18 @@ const TabButton = ({label, icon, isFocused, onPress}) => {
         {backgroundColor: isFocused ? COLORS.transparentBlack1 : null},
       ]}
       onPress={onPress}>
-      <Animated.View style={styles.outerTabContainer}>
-        <Animated.View style={styles.innerTabContainer}>
-          <Image source={icon} style={styles.tabIconStyle} />
+      <Animated.View style={[styles.outerTabContainer, outerContainerStyle]}>
+        <Animated.View style={[styles.innerTabContainer, innerContainerStyle]}>
+          <Image
+            source={icon}
+            style={[
+              styles.tabIconStyle,
+              {tintColor: isFocused ? COLORS.white : COLORS.gray},
+            ]}
+          />
           {isFocused && (
             <Text
-              style={{color: COLORS.gray, ...FONTS.h3, marginLeft: SIZES.base}}
+              style={{color: COLORS.white, ...FONTS.h3, marginLeft: SIZES.base}}
               numberOfLines={1}>
               {label}
             </Text>
@@ -53,7 +66,6 @@ const styles = StyleSheet.create({
   tabIconStyle: {
     width: 20,
     height: 20,
-    tintColor: COLORS.gray,
   },
   tabTextStyle: {
     marginLeft: SIZES.base,

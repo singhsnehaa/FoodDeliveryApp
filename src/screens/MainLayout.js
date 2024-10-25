@@ -48,6 +48,106 @@ const MainLayout = ({navigation}) => {
   }
   // Animation drawer end
 
+  // tab animation start
+  const homeTabFlex = useSharedValue(1);
+  const homeTabColor = useSharedValue(COLORS.white);
+
+  const searchTabFlex = useSharedValue(1);
+  const searchTabColor = useSharedValue(COLORS.white);
+
+  const cartTabFlex = useSharedValue(1);
+  const cartTabColor = useSharedValue(COLORS.white);
+
+  const favouriteTabFlex = useSharedValue(1);
+  const favouriteTabColor = useSharedValue(COLORS.white);
+
+  const notificationTabFlex = useSharedValue(1);
+  const notificationTabColor = useSharedValue(COLORS.white);
+
+  const homeFlexStyle = useAnimatedStyle(() => ({
+    flex: homeTabFlex.value,
+  }));
+
+  const homeColorStyle = useAnimatedStyle(() => ({
+    backgroundColor: homeTabColor.value,
+  }));
+
+  const searchFlexStyle = useAnimatedStyle(() => ({
+    flex: searchTabFlex.value,
+  }));
+
+  const searchColorStyle = useAnimatedStyle(() => ({
+    backgroundColor: searchTabColor.value,
+  }));
+
+  const cartFlexStyle = useAnimatedStyle(() => ({
+    flex: cartTabFlex.value,
+  }));
+
+  const cartColorStyle = useAnimatedStyle(() => ({
+    backgroundColor: cartTabColor.value,
+  }));
+
+  const favouriteFlexStyle = useAnimatedStyle(() => ({
+    flex: favouriteTabFlex.value,
+  }));
+
+  const favouriteColorStyle = useAnimatedStyle(() => ({
+    backgroundColor: favouriteTabColor.value,
+  }));
+
+  const notificationFlexStyle = useAnimatedStyle(() => ({
+    flex: notificationTabFlex.value,
+  }));
+
+  const notificationColorStyle = useAnimatedStyle(() => ({
+    backgroundColor: notificationTabColor.value,
+  }));
+
+  useEffect(() => {
+    if (selectedDrawerTab === constants.screens.home) {
+      homeTabFlex.value = withTiming(4, {duration: 500});
+      homeTabColor.value = withTiming(COLORS.primary, {duration: 500});
+    } else {
+      homeTabFlex.value = withTiming(1, {duration: 500});
+      homeTabColor.value = withTiming(COLORS.white, {duration: 500});
+    }
+
+    if (selectedDrawerTab === constants.screens.search) {
+      searchTabFlex.value = withTiming(4, {duration: 500});
+      searchTabColor.value = withTiming(COLORS.primary, {duration: 500});
+    } else {
+      searchTabFlex.value = withTiming(1, {duration: 500});
+      searchTabColor.value = withTiming(COLORS.white, {duration: 500});
+    }
+
+    if (selectedDrawerTab === constants.screens.cart) {
+      cartTabFlex.value = withTiming(4, {duration: 500});
+      cartTabColor.value = withTiming(COLORS.primary, {duration: 500});
+    } else {
+      cartTabFlex.value = withTiming(1, {duration: 500});
+      cartTabColor.value = withTiming(COLORS.white, {duration: 500});
+    }
+
+    if (selectedDrawerTab === constants.screens.favourite) {
+      favouriteTabFlex.value = withTiming(4, {duration: 500});
+      favouriteTabColor.value = withTiming(COLORS.primary, {duration: 500});
+    } else {
+      favouriteTabFlex.value = withTiming(1, {duration: 500});
+      favouriteTabColor.value = withTiming(COLORS.white, {duration: 500});
+    }
+
+    if (selectedDrawerTab === constants.screens.notification) {
+      notificationTabFlex.value = withTiming(4, {duration: 500});
+      notificationTabColor.value = withTiming(COLORS.primary, {duration: 500});
+    } else {
+      notificationTabFlex.value = withTiming(1, {duration: 500});
+      notificationTabColor.value = withTiming(COLORS.white, {duration: 500});
+    }
+  }, [selectedDrawerTab]);
+
+  // tab animation end
+
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
       {/* Header */}
@@ -74,6 +174,8 @@ const MainLayout = ({navigation}) => {
             label={constants.screens.home}
             icon={icons.home}
             isFocused={selectedDrawerTab === constants.screens.home}
+            outerContainerStyle={homeFlexStyle}
+            innerContainerStyle={homeColorStyle}
             onPress={() => dispatch(changeDrawerTab(constants.screens.home))}
           />
 
@@ -81,6 +183,8 @@ const MainLayout = ({navigation}) => {
             label={constants.screens.search}
             icon={icons.search}
             isFocused={selectedDrawerTab === constants.screens.search}
+            outerContainerStyle={searchFlexStyle}
+            innerContainerStyle={searchColorStyle}
             onPress={() => dispatch(changeDrawerTab(constants.screens.search))}
           />
 
@@ -88,6 +192,8 @@ const MainLayout = ({navigation}) => {
             label={constants.screens.cart}
             icon={icons.cart}
             isFocused={selectedDrawerTab === constants.screens.cart}
+            outerContainerStyle={cartFlexStyle}
+            innerContainerStyle={cartColorStyle}
             onPress={() => dispatch(changeDrawerTab(constants.screens.cart))}
           />
 
@@ -95,6 +201,8 @@ const MainLayout = ({navigation}) => {
             label={constants.screens.favourite}
             icon={icons.favourite}
             isFocused={selectedDrawerTab === constants.screens.favourite}
+            outerContainerStyle={favouriteFlexStyle}
+            innerContainerStyle={favouriteColorStyle}
             onPress={() =>
               dispatch(changeDrawerTab(constants.screens.favourite))
             }
@@ -103,6 +211,8 @@ const MainLayout = ({navigation}) => {
             label={constants.screens.notification}
             icon={icons.notification}
             isFocused={selectedDrawerTab === constants.screens.notification}
+            outerContainerStyle={notificationFlexStyle}
+            innerContainerStyle={notificationColorStyle}
             onPress={() =>
               dispatch(changeDrawerTab(constants.screens.notification))
             }
