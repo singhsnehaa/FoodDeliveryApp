@@ -12,9 +12,14 @@ import {
 import {reset, changeDrawerTab} from '../../redux/features/tabsSlice';
 import {useDispatch, useSelector} from 'react-redux';
 
-const CustomeDrawerItem = ({label, icon, onPress}) => {
+const CustomeDrawerItem = ({label, icon, isFocused, onPress}) => {
   return (
-    <TouchableOpacity style={styles.drawerMenuBox} onPress={onPress}>
+    <TouchableOpacity
+      style={[
+        styles.drawerMenuBox,
+        {backgroundColor: isFocused ? COLORS.transparentBlack1 : null},
+      ]}
+      onPress={onPress}>
       <Image
         source={icon}
         style={{height: 20, width: 20, tintColor: COLORS.white}}
@@ -30,13 +35,13 @@ const CustomeDrawerContent = ({navigation}) => {
   const {selectedDrawerTab} = useSelector(state => state.tabs);
   const dispatch = useDispatch();
 
-  console.log('selectedDrawerTab=>', selectedDrawerTab);
   return (
     <DrawerContentScrollView
       scrollEnabled={true}
       contentContainerStyle={{flex: 1}}>
       <View style={styles.DrawerContentBox}>
         {/* Close */}
+
         <View style={{alignItems: 'flex-start', justifyContent: 'center'}}>
           <TouchableOpacity
             style={styles.closeIconBox}
@@ -47,6 +52,7 @@ const CustomeDrawerContent = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
+
         {/* profile */}
         <TouchableOpacity
           style={styles.profileBox}
@@ -64,13 +70,15 @@ const CustomeDrawerContent = ({navigation}) => {
             </Text>
           </View>
         </TouchableOpacity>
+
         {/* Drawer items */}
         <View style={{flex: 1, marginTop: SIZES.padding}}>
           <CustomeDrawerItem
             label={constants.screens.home}
             icon={icons.home}
+            isFocused={selectedDrawerTab === constants.screens.home}
             onPress={() => {
-              dispatch(changeDrawerTab(constants.screens.notification));
+              dispatch(changeDrawerTab(constants.screens.home));
               navigation.navigate('MainLayout');
             }}
           />
@@ -81,13 +89,24 @@ const CustomeDrawerContent = ({navigation}) => {
           <CustomeDrawerItem
             label={constants.screens.notification}
             icon={icons.notification}
+            isFocused={selectedDrawerTab === constants.screens.notification}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.notification));
+              navigation.navigate('MainLayout');
+            }}
           />
           <CustomeDrawerItem
             label={constants.screens.favourite}
             icon={icons.favourite}
+            isFocused={selectedDrawerTab === constants.screens.favourite}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.favourite));
+              navigation.navigate('MainLayout');
+            }}
           />
           {/* Line diveder */}
           <View style={styles.lineDivider}></View>
+
           <CustomeDrawerItem label={'Track your order'} icon={icons.location} />
           <CustomeDrawerItem label={'Coupons'} icon={icons.coupon} />
           <CustomeDrawerItem label={'Settings'} icon={icons.setting} />
