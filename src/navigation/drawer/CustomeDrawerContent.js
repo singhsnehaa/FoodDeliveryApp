@@ -85,6 +85,11 @@ const CustomeDrawerContent = ({navigation}) => {
           <CustomeDrawerItem
             label={constants.screens.my_wallet}
             icon={icons.wallet}
+            isFocused={selectedDrawerTab === constants.screens.my_wallet}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.my_wallet));
+              navigation.navigate('MainLayout');
+            }}
           />
           <CustomeDrawerItem
             label={constants.screens.notification}
@@ -107,11 +112,42 @@ const CustomeDrawerContent = ({navigation}) => {
           {/* Line diveder */}
           <View style={styles.lineDivider}></View>
 
-          <CustomeDrawerItem label={'Track your order'} icon={icons.location} />
-          <CustomeDrawerItem label={'Coupons'} icon={icons.coupon} />
-          <CustomeDrawerItem label={'Settings'} icon={icons.setting} />
-          <CustomeDrawerItem label={'Invite a Friend'} icon={icons.profile} />
-          <CustomeDrawerItem label={'Help Center'} icon={icons.help} />
+          <CustomeDrawerItem
+            label={constants.screens.track_order}
+            icon={icons.location}
+            isFocused={selectedDrawerTab === constants.screens.track_order}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.track_order));
+              navigation.navigate('MainLayout');
+            }}
+          />
+          <CustomeDrawerItem
+            label={constants.screens.settings}
+            icon={icons.setting}
+            isFocused={selectedDrawerTab === constants.screens.settings}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.settings));
+              navigation.navigate('MainLayout');
+            }}
+          />
+          <CustomeDrawerItem
+            label={constants.screens.invite_friend}
+            icon={icons.profile}
+            isFocused={selectedDrawerTab === constants.screens.invite_friend}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.invite_friend));
+              navigation.navigate('MainLayout');
+            }}
+          />
+          <CustomeDrawerItem
+            label={constants.screens.help_center}
+            icon={icons.help}
+            isFocused={selectedDrawerTab === constants.screens.help_center}
+            onPress={() => {
+              dispatch(changeDrawerTab(constants.screens.help_center));
+              navigation.navigate('MainLayout');
+            }}
+          />
         </View>
         <View style={{marginBottom: SIZES.padding}}>
           <CustomeDrawerItem label={'Logout'} icon={icons.logout} />

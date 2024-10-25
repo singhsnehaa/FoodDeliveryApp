@@ -6,6 +6,10 @@ const screens = {
   favourite: 'Favourite',
   notification: 'Notification',
   my_wallet: 'My Wallet',
+  track_order: 'Track your order',
+  settings: 'Settings',
+  invite_friend: 'Invite a Friend',
+  help_center: 'Help Center',
 };
 
 const bottom_tabs = [
