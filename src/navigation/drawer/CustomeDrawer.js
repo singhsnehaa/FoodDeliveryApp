@@ -22,7 +22,7 @@ const CustomeDrawer = () => {
       <Drawer.Navigator
         screenOptions={{
           initialRouteName: 'MainLayout',
-          // headerShown: false,
+          headerShown: false,
           drawerType: 'slide',
           drawerStyle: styles.drawerStyle,
           overlayColor: 'transparent',
