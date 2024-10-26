@@ -182,7 +182,6 @@ const MainLayout = ({navigation}) => {
 
       {/* Contents */}
       <View style={styles.contentWrap}>
-        <Text>MainLayout</Text>
         <FlatList
           ref={flatListRef}
           horizontal
