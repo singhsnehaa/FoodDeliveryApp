@@ -16,12 +16,13 @@ import {
   constants,
   dummyData,
 } from '../../constants';
-import {HorizontalFoodCart} from '../../components';
+import {HorizontalFoodCart, Section} from '../../components';
 
 const Home = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(1);
   const [selectedMenuType, setSelectedMenuType] = useState(1);
   const [menuList, setMenuList] = useState([]);
+  const [recommended, setRecommend] = useState([]);
 
   useEffect(() => {
     handleChangeCategory(selectedCategoryId, selectedMenuType);
@@ -29,10 +30,53 @@ const Home = () => {
 
   // handler ChangeCategory
   const handleChangeCategory = (categoryId, menuTypeId) => {
-    // Find the menu based on menu type
+    // retrive the Recommended menu
+    let selectedRecommend = dummyData.menu.find(a => a.name === 'Recommended');
+
+    // Find the menu based on menu type Id
     let selectedMenu = dummyData.menu.find(a => a.id === menuTypeId);
+
+    // set the recommended menu based on the category Id
+    setRecommend(
+      selectedRecommend?.list.filter(a => a.categories.includes(categoryId)),
+    );
+
+    // set the menu bbased on the category Id
     setMenuList(
-      selectedMenu.list.filter(a => a.categories.includes(categoryId)),
+      selectedMenu?.list.filter(a => a.categories.includes(categoryId)),
+    );
+  };
+
+  const renderRecommendedSection = () => {
+    return (
+      <Section
+        title="Recommended"
+        onPress={() => console.log('Show all recommended')}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={recommended}
+          keyExtractor={item => `${item.id}`}
+          renderItem={({item, index}) => {
+            return (
+              <HorizontalFoodCart
+                item={item}
+                containerStyle={{
+                  height: 180,
+                  width: SIZES.width * 0.85,
+                  marginLeft: index == 0 ? SIZES.padding : 18,
+                  marginRight:
+                    index == recommended.length - 1 ? SIZES.padding : 0,
+                  paddingRight: SIZES.radius,
+                  alignItems: 'center',
+                }}
+                imageStyle={styles.recommendFoodImageStyle}
+                onPress={() => console.log('Recommended FoodCart')}
+              />
+            );
+          }}
+        />
+      </Section>
     );
   };
 
@@ -109,6 +153,8 @@ const Home = () => {
         keyExtractor={item => `${item.id}`}
         ListHeaderComponent={
           <View>
+            {/* Recomanded Section */}
+            {renderRecommendedSection()}
             {/* menu Type */}
             {renderMenuType()}
           </View>
@@ -117,6 +163,8 @@ const Home = () => {
           return (
             <HorizontalFoodCart
               item={item}
+              containerStyle={styles.foodCartContainer}
+              imageStyle={styles.foodImageStyle}
               onPress={() => console.log('HorizontalFoodCart')}
             />
           );
@@ -137,5 +185,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.radius,
     borderRadius: SIZES.radius,
     backgroundColor: COLORS.lightGray2,
+  },
+  foodCartContainer: {
+    height: 130,
+    alignItems: 'center',
+    marginHorizontal: SIZES.padding,
+    marginBottom: SIZES.radius,
+  },
+  foodImageStyle: {
+    marginTop: 20,
+    height: 110,
+    width: 110,
+  },
+  recommendFoodImageStyle: {
+    marginTop: 35,
+    height: 150,
+    width: 150,
   },
 });

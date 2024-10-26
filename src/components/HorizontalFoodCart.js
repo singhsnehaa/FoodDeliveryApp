@@ -2,11 +2,11 @@ import React from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {COLORS, FONTS, SIZES, icons, constants, dummyData} from '../constants';
 
-const HorizontalFoodCart = ({item}) => {
+const HorizontalFoodCart = ({item, containerStyle, imageStyle}) => {
   return (
-    <TouchableOpacity style={styles.foodCartContainer}>
+    <TouchableOpacity style={[styles.foodCartContainer, containerStyle]}>
       {/* Image */}
-      <Image source={item.image} style={styles.itemStyle} />
+      <Image source={item.image} style={imageStyle} />
 
       {/* Info */}
       <View style={{flex: 1}}>
@@ -38,15 +38,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: SIZES.radius,
     backgroundColor: COLORS.lightGray2,
-    height: 130,
-    alignItems: 'center',
-    marginHorizontal: SIZES.padding,
-    marginBottom: SIZES.radius,
-  },
-  itemStyle: {
-    marginTop: 20,
-    height: 110,
-    width: 110,
   },
   caloriesBox: {
     flexDirection: 'row',
