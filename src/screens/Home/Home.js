@@ -36,6 +36,41 @@ const Home = () => {
     );
   };
 
+  const renderMenuType = () => {
+    return (
+      <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={dummyData.menu}
+        keyExtractor={item => `${item.id}`}
+        contentContainerStyle={{marginTop: 30, marginBottom: 20}}
+        renderItem={({item, index}) => {
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                setSelectedMenuType(item.id);
+                handleChangeCategory(selectedCategoryId, item.id);
+              }}
+              style={{
+                marginLeft: SIZES.padding,
+                marginRight:
+                  index == dummyData.menu.length - 1 ? SIZES.padding : 0,
+              }}>
+              <Text
+                style={{
+                  ...FONTS.h3,
+                  color:
+                    selectedMenuType == item.id ? COLORS.primary : COLORS.black,
+                }}>
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    );
+  };
+
   const renderSearch = () => {
     return (
       <View style={styles.searchWrap}>
@@ -72,6 +107,12 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
         data={menuList}
         keyExtractor={item => `${item.id}`}
+        ListHeaderComponent={
+          <View>
+            {/* menu Type */}
+            {renderMenuType()}
+          </View>
+        }
         renderItem={({item, index}) => {
           return (
             <HorizontalFoodCart
