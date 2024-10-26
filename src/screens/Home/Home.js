@@ -16,13 +16,14 @@ import {
   constants,
   dummyData,
 } from '../../constants';
-import {HorizontalFoodCart, Section} from '../../components';
+import {HorizontalFoodCart, Section, VerticalFoodCart} from '../../components';
 
 const Home = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(1);
   const [selectedMenuType, setSelectedMenuType] = useState(1);
   const [menuList, setMenuList] = useState([]);
   const [recommended, setRecommend] = useState([]);
+  const [popular, setPopular] = useState([]);
 
   useEffect(() => {
     handleChangeCategory(selectedCategoryId, selectedMenuType);
@@ -30,11 +31,19 @@ const Home = () => {
 
   // handler ChangeCategory
   const handleChangeCategory = (categoryId, menuTypeId) => {
+    // retrive the Popular menu
+    let selectedPopular = dummyData.menu.find(a => a.name === 'Popular');
+
     // retrive the Recommended menu
     let selectedRecommend = dummyData.menu.find(a => a.name === 'Recommended');
 
     // Find the menu based on menu type Id
     let selectedMenu = dummyData.menu.find(a => a.id === menuTypeId);
+
+    // set the Popular menu based on the category Id
+    setPopular(
+      selectedPopular?.list.filter(a => a.categories.includes(categoryId)),
+    );
 
     // set the recommended menu based on the category Id
     setRecommend(
@@ -47,6 +56,33 @@ const Home = () => {
     );
   };
 
+  const renderPopularSection = () => {
+    return (
+      <Section
+        title="Popular Near You"
+        onPress={() => console.log('Show all Popular section')}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={popular}
+          keyExtractor={item => `${item.id}`}
+          renderItem={({item, index}) => {
+            return (
+              <VerticalFoodCart
+                item={item}
+                containerStyle={{
+                  marginLeft: index == 0 ? SIZES.padding : 18,
+                  marginRight:
+                    index == recommended.length - 1 ? SIZES.padding : 0,
+                }}
+                onPress={() => console.log('Popular FoodCart')}
+              />
+            );
+          }}
+        />
+      </Section>
+    );
+  };
   const renderRecommendedSection = () => {
     return (
       <Section
@@ -153,6 +189,8 @@ const Home = () => {
         keyExtractor={item => `${item.id}`}
         ListHeaderComponent={
           <View>
+            {/* Render Popular section */}
+            {renderPopularSection()}
             {/* Recomanded Section */}
             {renderRecommendedSection()}
             {/* menu Type */}
