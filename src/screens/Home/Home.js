@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -16,8 +16,26 @@ import {
   constants,
   dummyData,
 } from '../../constants';
+import {HorizontalFoodCart} from '../../components';
 
 const Home = () => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState(1);
+  const [selectedMenuType, setSelectedMenuType] = useState(1);
+  const [menuList, setMenuList] = useState([]);
+
+  useEffect(() => {
+    handleChangeCategory(selectedCategoryId, selectedMenuType);
+  }, []);
+
+  // handler ChangeCategory
+  const handleChangeCategory = (categoryId, menuTypeId) => {
+    // Find the menu based on menu type
+    let selectedMenu = dummyData.menu.find(a => a.id === menuTypeId);
+    setMenuList(
+      selectedMenu.list.filter(a => a.categories.includes(categoryId)),
+    );
+  };
+
   const renderSearch = () => {
     return (
       <View style={styles.searchWrap}>
@@ -48,7 +66,21 @@ const Home = () => {
       {/* Search section */}
 
       {renderSearch()}
+
       {/* List section */}
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={menuList}
+        keyExtractor={item => `${item.id}`}
+        renderItem={({item, index}) => {
+          return (
+            <HorizontalFoodCart
+              item={item}
+              onPress={() => console.log('HorizontalFoodCart')}
+            />
+          );
+        }}
+      />
     </View>
   );
 };
