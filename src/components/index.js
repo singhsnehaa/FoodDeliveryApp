@@ -4,6 +4,7 @@ import HorizontalFoodCart from './HorizontalFoodCart';
 import Section from './Section';
 import VerticalFoodCart from './VerticalFoodCart';
 import IconButton from './IconButton';
+import TwoPointSider from './TwoPointSider';
 
 export {
   Header,
@@ -12,4 +13,5 @@ export {
   Section,
   VerticalFoodCart,
   IconButton,
+  TwoPointSider,
 };

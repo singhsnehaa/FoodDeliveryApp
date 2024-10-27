@@ -18,7 +18,17 @@ import {
   constants,
   dummyData,
 } from '../../constants';
-import {IconButton} from '../../components';
+import {IconButton, TwoPointSider} from '../../components';
+
+const Section = ({containerStyle, title, children}) => {
+  return (
+    <View style={{marginTop: SIZES.padding, ...containerStyle}}>
+      <Text style={{...FONTS.h3}}>{title}</Text>
+
+      {children}
+    </View>
+  );
+};
 
 const FilterModal = ({isVisible, onClose}) => {
   const [showFilterModal, setShowFilterModal] = useState(isVisible);
@@ -45,6 +55,23 @@ const FilterModal = ({isVisible, onClose}) => {
     outputRange: [SIZES.height, SIZES.height - 680],
   });
 
+  const renderDistance = () => {
+    return (
+      <Section title={'Distance'}>
+        <View style={{alignItems: 'center'}}>
+          <TwoPointSider
+            values={[3, 10]}
+            min={1}
+            max={20}
+            postFix="km"
+            prefix="km"
+            onValuesChange={values => console.log(values)}
+          />
+        </View>
+      </Section>
+    );
+  };
+
   return (
     <Modal animationType="fade" transparent={true} visible={isVisible}>
       <View style={styles.filterContainer}>
@@ -65,6 +92,14 @@ const FilterModal = ({isVisible, onClose}) => {
               onPress={() => setShowFilterModal(false)}
             />
           </View>
+
+          {/*  */}
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{paddingBottom: 250}}>
+            {/* Distance */}
+            {renderDistance()}
+          </ScrollView>
         </Animated.View>
       </View>
     </Modal>
