@@ -1,15 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Image,
-  Animated,
-  ScrollView,
-  TouchableWithoutFeedback,
-  Modal,
-} from 'react-native';
+import React from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import {COLORS, FONTS, SIZES} from '../constants';
 

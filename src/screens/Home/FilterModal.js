@@ -18,7 +18,7 @@ import {
   constants,
   dummyData,
 } from '../../constants';
-import {IconButton, TwoPointSider} from '../../components';
+import {IconButton, TextButton, TwoPointSider} from '../../components';
 
 const Section = ({containerStyle, title, children}) => {
   return (
@@ -32,6 +32,10 @@ const Section = ({containerStyle, title, children}) => {
 
 const FilterModal = ({isVisible, onClose}) => {
   const [showFilterModal, setShowFilterModal] = useState(isVisible);
+  const [deliveryTime, setDeliveryTime] = useState('');
+  const [ratings, setRatings] = useState('');
+  const [tags, setTags] = useState('');
+
   const modalAnimatedValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -72,6 +76,40 @@ const FilterModal = ({isVisible, onClose}) => {
     );
   };
 
+  const renderDeliveryTime = () => {
+    return (
+      <Section title={'Delivery Time'} containerStyle={{marginTop: 40}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            marginTop: SIZES.radius,
+          }}>
+          {constants.delivery_time.map((item, index) => {
+            return (
+              <TextButton
+                key={`deliver_time-${index}`}
+                label={item.label}
+                labelStyle={{
+                  color: item.id == deliveryTime ? COLORS.white : COLORS.gray,
+                  ...FONTS.body3,
+                }}
+                buttonContainerStyle={{
+                  ...styles.buttonContainerSty,
+                  backgroundColor:
+                    item.id == deliveryTime
+                      ? COLORS.primary
+                      : COLORS.lightGray2,
+                }}
+                onPress={() => setDeliveryTime(item.id)}
+              />
+            );
+          })}
+        </View>
+      </Section>
+    );
+  };
+
   return (
     <Modal animationType="fade" transparent={true} visible={isVisible}>
       <View style={styles.filterContainer}>
@@ -99,6 +137,9 @@ const FilterModal = ({isVisible, onClose}) => {
             contentContainerStyle={{paddingBottom: 250}}>
             {/* Distance */}
             {renderDistance()}
+
+            {/* Delivery Timer */}
+            {renderDeliveryTime()}
           </ScrollView>
         </Animated.View>
       </View>
@@ -133,5 +174,12 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     borderColor: COLORS.gray2,
+  },
+  buttonContainerSty: {
+    width: '30%',
+    height: 50,
+    margin: 5,
+    alignItems: 'center',
+    borderRadius: SIZES.base,
   },
 });
