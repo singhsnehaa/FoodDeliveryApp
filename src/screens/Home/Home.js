@@ -56,6 +56,18 @@ const Home = () => {
     );
   };
 
+  const renderDeliveryTo = () => {
+    return (
+      <View style={styles.deiveryContainer}>
+        <Text style={{color: COLORS.primary, ...FONTS.body3}}>Delivery To</Text>
+        <TouchableOpacity style={styles.addressBox}>
+          <Text style={{...FONTS.h3}}>{dummyData.myProfile.address}</Text>
+          <Image source={icons.down_arrow} style={styles.downArrowImg} />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
   const renderFoodCategories = () => {
     return (
       <FlatList
@@ -234,6 +246,9 @@ const Home = () => {
         keyExtractor={item => `${item.id}`}
         ListHeaderComponent={
           <View>
+            {/* Delivery To */}
+            {renderDeliveryTo()}
+
             {/* Food catefories section */}
             {renderFoodCategories()}
 
@@ -257,6 +272,7 @@ const Home = () => {
             />
           );
         }}
+        ListFooterComponent={<View style={{height: 200}} />}
       />
     </View>
   );
@@ -301,5 +317,19 @@ const styles = StyleSheet.create({
     marginTop: 5,
     height: 50,
     width: 50,
+  },
+  deiveryContainer: {
+    marginTop: SIZES.padding,
+    marginHorizontal: SIZES.padding,
+  },
+  addressBox: {
+    flexDirection: 'row',
+    marginTop: SIZES.base,
+    alignItems: 'center',
+  },
+  downArrowImg: {
+    marginLeft: SIZES.base,
+    height: 20,
+    width: 20,
   },
 });
