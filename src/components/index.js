@@ -3,5 +3,13 @@ import TabButton from './TabButton';
 import HorizontalFoodCart from './HorizontalFoodCart';
 import Section from './Section';
 import VerticalFoodCart from './VerticalFoodCart';
+import IconButton from './IconButton';
 
-export {Header, TabButton, HorizontalFoodCart, Section, VerticalFoodCart};
+export {
+  Header,
+  TabButton,
+  HorizontalFoodCart,
+  Section,
+  VerticalFoodCart,
+  IconButton,
+};
