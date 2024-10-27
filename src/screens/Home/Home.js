@@ -56,6 +56,50 @@ const Home = () => {
     );
   };
 
+  const renderFoodCategories = () => {
+    return (
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        data={dummyData.categories}
+        keyExtractor={item => `${item.id}`}
+        renderItem={({item, index}) => {
+          return (
+            <TouchableOpacity
+              style={{
+                ...styles.foodCategoryContainer,
+                marginLeft: index == 0 ? SIZES.padding : SIZES.radius,
+                marginRight:
+                  index == dummyData.categories.length - 1 ? SIZES.padding : 0,
+                backgroundColor:
+                  selectedCategoryId == item.id
+                    ? COLORS.primary
+                    : COLORS.lightGray2,
+              }}
+              onPress={() => {
+                setSelectedCategoryId(item.id);
+                handleChangeCategory(item.id, selectedMenuType);
+              }}>
+              <Image source={item.icon} style={styles.categoryFoodImg} />
+              <Text
+                style={{
+                  ...FONTS.h3,
+                  alignSelf: 'center',
+                  marginRight: SIZES.base,
+                  color:
+                    selectedCategoryId == item.id
+                      ? COLORS.white
+                      : COLORS.darkGray,
+                }}>
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    );
+  };
+
   const renderPopularSection = () => {
     return (
       <Section
@@ -83,6 +127,7 @@ const Home = () => {
       </Section>
     );
   };
+
   const renderRecommendedSection = () => {
     return (
       <Section
@@ -189,10 +234,15 @@ const Home = () => {
         keyExtractor={item => `${item.id}`}
         ListHeaderComponent={
           <View>
+            {/* Food catefories section */}
+            {renderFoodCategories()}
+
             {/* Render Popular section */}
             {renderPopularSection()}
+
             {/* Recomanded Section */}
             {renderRecommendedSection()}
+
             {/* menu Type */}
             {renderMenuType()}
           </View>
@@ -239,5 +289,17 @@ const styles = StyleSheet.create({
     marginTop: 35,
     height: 150,
     width: 150,
+  },
+  foodCategoryContainer: {
+    flexDirection: 'row',
+    height: 55,
+    marginTop: SIZES.padding,
+    paddingHorizontal: 8,
+    borderRadius: SIZES.radius,
+  },
+  categoryFoodImg: {
+    marginTop: 5,
+    height: 50,
+    width: 50,
   },
 });
