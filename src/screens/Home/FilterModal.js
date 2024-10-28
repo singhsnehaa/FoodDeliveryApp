@@ -164,6 +164,33 @@ const FilterModal = ({isVisible, onClose}) => {
     );
   };
 
+  const renderTags = () => {
+    return (
+      <Section title={'Tags'}>
+        <View style={{flexDirection: 'row', flexWrap: 'wrap', marginTop: 5}}>
+          {constants.tags.map((item, index) => {
+            return (
+              <TextButton
+                key={`Tags-${index}`}
+                label={item.label}
+                labelStyle={{
+                  color: item.id == tags ? COLORS.white : COLORS.gray,
+                  ...FONTS.body3,
+                }}
+                buttonContainerStyle={{
+                  ...styles.tagsContainerStyle,
+                  backgroundColor:
+                    item.id == tags ? COLORS.primary : COLORS.lightGray2,
+                }}
+                onPress={() => setTags(item.id)}
+              />
+            );
+          })}
+        </View>
+      </Section>
+    );
+  };
+
   return (
     <Modal animationType="fade" transparent={true} visible={isVisible}>
       <View style={styles.filterContainer}>
@@ -200,6 +227,9 @@ const FilterModal = ({isVisible, onClose}) => {
 
             {/* Rating Section */}
             {renderRatings()}
+
+            {/* Tags Section */}
+            {renderTags()}
           </ScrollView>
         </Animated.View>
       </View>
@@ -247,6 +277,13 @@ const styles = StyleSheet.create({
     height: 50,
     margin: 5,
     alignItems: 'center',
+    borderRadius: SIZES.base,
+  },
+  tagsContainerStyle: {
+    height: 50,
+    margin: 5,
+    alignItems: 'center',
+    paddingHorizontal: SIZES.padding,
     borderRadius: SIZES.base,
   },
 });
