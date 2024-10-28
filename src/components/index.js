@@ -6,6 +6,7 @@ import VerticalFoodCart from './VerticalFoodCart';
 import IconButton from './IconButton';
 import TwoPointSider from './TwoPointSider';
 import TextButton from './TextButton';
+import TextIconButton from './TextIconButton';
 
 export {
   Header,
@@ -16,4 +17,5 @@ export {
   IconButton,
   TwoPointSider,
   TextButton,
+  TextIconButton,
 };

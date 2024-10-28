@@ -18,7 +18,12 @@ import {
   constants,
   dummyData,
 } from '../../constants';
-import {IconButton, TextButton, TwoPointSider} from '../../components';
+import {
+  IconButton,
+  TextButton,
+  TextIconButton,
+  TwoPointSider,
+} from '../../components';
 
 const Section = ({containerStyle, title, children}) => {
   return (
@@ -127,6 +132,38 @@ const FilterModal = ({isVisible, onClose}) => {
     );
   };
 
+  const renderRatings = () => {
+    return (
+      <Section title={'Ratings'} containerStyle={{marginTop: 40}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
+          {constants.ratings.map((item, index) => {
+            return (
+              <TextIconButton
+                key={`Ratings-${index}`}
+                label={item.label}
+                labelStyle={{
+                  color: item.id == ratings ? COLORS.white : COLORS.gray,
+                  ...FONTS.body3,
+                }}
+                icon={icons.star}
+                containerStyle={{
+                  ...styles.ratingContainerStyle,
+                  backgroundColor:
+                    item.id == ratings ? COLORS.primary : COLORS.lightGray2,
+                }}
+                onPress={() => setRatings(item.id)}
+              />
+            );
+          })}
+        </View>
+      </Section>
+    );
+  };
+
   return (
     <Modal animationType="fade" transparent={true} visible={isVisible}>
       <View style={styles.filterContainer}>
@@ -160,6 +197,9 @@ const FilterModal = ({isVisible, onClose}) => {
 
             {/* Pricing range section */}
             {renderPricingRange()}
+
+            {/* Rating Section */}
+            {renderRatings()}
           </ScrollView>
         </Animated.View>
       </View>
@@ -197,6 +237,13 @@ const styles = StyleSheet.create({
   },
   buttonContainerSty: {
     width: '30%',
+    height: 50,
+    margin: 5,
+    alignItems: 'center',
+    borderRadius: SIZES.base,
+  },
+  ratingContainerStyle: {
+    flex: 1,
     height: 50,
     margin: 5,
     alignItems: 'center',
