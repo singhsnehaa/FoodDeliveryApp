@@ -72,3 +72,11 @@ You've successfully run and modified your React Native App. :partying_face:
 - Bottom Tabs Animation(without 3rd party plugin)
 - Dynamic bottom Modal with animation (without 3rd party plugin)
 - Home: Dynamic top bar tabs that adjust based on text width, with animation used in the FlatList.
+
+## APK File for Testing:
+
+Download the APK file here:
+
+# Screenshots of the app (Light and Dark modes):
+
+<img src="src/sampleImages/home-screen.png" width="300" /> <img src="src/sampleImages/animated-drawer-menu.png" width="300" /> <img src="src/sampleImages/bottom-modal.png" width="300" />
