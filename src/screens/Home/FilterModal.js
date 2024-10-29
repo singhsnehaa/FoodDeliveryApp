@@ -9,6 +9,7 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
   Modal,
+  Platform,
 } from 'react-native';
 import {
   COLORS,
@@ -231,6 +232,15 @@ const FilterModal = ({isVisible, onClose}) => {
             {/* Tags Section */}
             {renderTags()}
           </ScrollView>
+
+          {/* Apply Bbbutton */}
+          <View style={styles.applyBtnContainer}>
+            <TextButton
+              label="Apply Filter"
+              buttonContainerStyle={styles.ApplyBtnStyle}
+              onPress={() => console.log('Apply Filter Btn')}
+            />
+          </View>
         </Animated.View>
       </View>
     </Modal>
@@ -284,6 +294,21 @@ const styles = StyleSheet.create({
     margin: 5,
     alignItems: 'center',
     paddingHorizontal: SIZES.padding,
+    borderRadius: SIZES.base,
+  },
+  applyBtnContainer: {
+    position: 'absolute',
+    bottom: Platform.OS == 'ios' ? 150 : 0,
+    left: 0,
+    right: 0,
+    height: 110,
+    paddingHorizontal: SIZES.padding,
+    paddingVertical: SIZES.radius,
+    backgroundColor: COLORS.white,
+  },
+  ApplyBtnStyle: {
+    height: 50,
+    backgroundColor: COLORS.primary,
     borderRadius: SIZES.base,
   },
 });
