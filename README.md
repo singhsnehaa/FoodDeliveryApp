@@ -79,4 +79,4 @@ Download the APK file here:
 
 # Screenshots of the app (Light and Dark modes):
 
-<img src="src/sampleImages/home-screen.png" width="300" /> <img src="src/sampleImages/animated-drawer-menu.png" width="300" /> <img src="src/sampleImages/bottom-modal.png" width="300" />
+1. <img src="src/sampleImages/home-screen.png" width="300" /> 2. <img src="src/sampleImages/animated-drawer-menu.png" width="300" /> 3 .<img src="src/sampleImages/bottom-modal.png" width="300" />
