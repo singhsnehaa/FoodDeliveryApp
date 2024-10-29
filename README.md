@@ -1,12 +1,10 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Food Delivery App
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: The Food Delivery App enables users to conveniently order food with features such as My Wallet, Notifications, Favorites, Order Tracking, Settings, Invite a Friend, Help Center, and Logout. Users can explore options like Popular Near You, Trending Food, and Recommended Food. Additionally, they can view details including food distance, ratings, delivery time, and tags.
 
 ## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
 To start Metro, run the following command from the _root_ of your React Native project:
 
@@ -59,21 +57,18 @@ Now that you have successfully run the app, let's modify it.
 
 You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
+### Technology Stack
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+- [React-Native] - For a rich UI across both Android and iOS (version 0.75.4).
+- [Navigation] - Drawer-tabs bavigation (v6.7.2) and stack navigation (v6.4.1).
+- [React-Redux] - for State management using @reduxjs/toolkit (v2.3.0), react-redux (v9.1.2)
+- [Multi-slider] - react-native-multi-slide (v0.3.6). for sider to see distance and price range.
+- [Javascript] - For implementing logic.
+- [git-hub] - For code version control.
 
-# Troubleshooting
+### Features
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Dynamic Drawer Animation.
+- Bottom Tabs Animation(without 3rd party plugin)
+- Dynamic bottom Modal with animation (without 3rd party plugin)
+- Home: Dynamic top bar tabs that adjust based on text width, with animation used in the FlatList.
