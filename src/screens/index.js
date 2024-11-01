@@ -16,6 +16,9 @@ import Favourite from './Favourite/Favourite';
 // Notification
 import Notification from './Notification/Notification';
 
+// OnBoarding
+import OnBoarding from './OnBoarding/OnBoarding';
+
 export {
   MainLayout,
   Home,
@@ -24,4 +27,5 @@ export {
   CartTab,
   Favourite,
   Notification,
+  OnBoarding,
 };
