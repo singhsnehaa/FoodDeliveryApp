@@ -1,7 +1,6 @@
 package com.fooddeliveryapp
 
 import android.os.Bundle;  // Splash screen code
-import org.devio.rn.splashscreen.SplashScreen;  // Splash screen code
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -21,11 +20,5 @@ class MainActivity : ReactActivity() {
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
-
-  // Splash screen code
-    override fun onCreate(savedInstanceState: Bundle?) {
-      SplashScreen.show(this)
-      super.onCreate(savedInstanceState)
-    }
-    
+       SplashScreen.show(this);  // Splash screen code
 }
