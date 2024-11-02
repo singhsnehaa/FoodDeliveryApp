@@ -8,6 +8,7 @@ import TwoPointSider from './TwoPointSider';
 import TextButton from './TextButton';
 import TextIconButton from './TextIconButton';
 import FormInput from './FormInput';
+import CustomeSwitch from './CustomeSwitch';
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   TextButton,
   TextIconButton,
   FormInput,
+  CustomeSwitch,
 };
