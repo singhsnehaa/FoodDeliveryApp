@@ -7,6 +7,7 @@ import IconButton from './IconButton';
 import TwoPointSider from './TwoPointSider';
 import TextButton from './TextButton';
 import TextIconButton from './TextIconButton';
+import FormInput from './FormInput';
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   TwoPointSider,
   TextButton,
   TextIconButton,
+  FormInput,
 };
