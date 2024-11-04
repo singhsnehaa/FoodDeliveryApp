@@ -25,6 +25,9 @@ import SignIn from './authentication/SignIn';
 // AuthLayout
 import AuthLayout from './authentication/AuthLayout';
 
+// AuthLayout
+import SignUp from './authentication/SignUp';
+
 export {
   MainLayout,
   Home,
@@ -36,4 +39,5 @@ export {
   OnBoarding,
   SignIn,
   AuthLayout,
+  SignUp,
 };

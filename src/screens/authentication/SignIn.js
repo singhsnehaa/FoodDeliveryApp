@@ -11,15 +11,22 @@ import {COLORS, FONTS, SIZES, constants, icons, images} from '../../constants';
 import AuthLayout from './AuthLayout';
 import {utils} from '../../utils';
 
-const SignIn = navigation => {
+const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [showPass, setShowPass] = useState(false);
   const [saveMe, setSaveMe] = useState(false);
 
   const isEnableSignIn = () =>
     email != '' && password != '' && emailError == '';
+
+  const handleSubmit = (email, password) => {
+    if (email === 'test@gmail.com' && password === '123456789') {
+      navigation?.navigate('Home');
+    }
+  };
 
   return (
     <AuthLayout
@@ -65,10 +72,11 @@ const SignIn = navigation => {
           autoCompleteType="password"
           containerStyle={{marginTop: SIZES.radius}}
           onChange={value => {
-            // validate email
+            // validate password
+            utils?.validatePassword(value, setPasswordError);
             setPassword(value);
           }}
-          errorMsg={emailError}
+          errorMsg={passwordError}
           appendComponent={
             <TouchableOpacity
               style={styles.appendPassword}
@@ -103,7 +111,7 @@ const SignIn = navigation => {
               ? COLORS.primary
               : COLORS.transparentPrimray,
           }}
-          //   onPress={() => navigation.navigate('ForgotPassword')}
+          onPress={() => handleSubmit(email, password)}
         />
 
         {/* sign UP */}
