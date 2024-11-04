@@ -25,8 +25,11 @@ import SignIn from './authentication/SignIn';
 // AuthLayout
 import AuthLayout from './authentication/AuthLayout';
 
-// AuthLayout
+// SignUp
 import SignUp from './authentication/SignUp';
+
+// Otp
+import Otp from './authentication/Otp';
 
 export {
   MainLayout,
@@ -40,4 +43,5 @@ export {
   SignIn,
   AuthLayout,
   SignUp,
+  Otp,
 };

@@ -24,19 +24,13 @@ const SignUp = ({navigation}) => {
     userNameError == '';
 
   const handleSubmit = () => {
-    if (
-      email === 'test@gmail.com' &&
-      password === '123456789' &&
-      userName == 'Sneha'
-    ) {
-      navigation?.navigate('OTP');
-    }
+    navigation?.navigate('Otp');
   };
 
   return (
     <AuthLayout
-      title={'Lets Sign you in'}
-      subTitle="Welcome back, you have been missed">
+      title={'Geeting Started'}
+      subTitle="Create an account to continue!">
       <View style={{flex: 1, marginTop: SIZES.padding * 2}}>
         {/* Form Input Section */}
         <FormInput
