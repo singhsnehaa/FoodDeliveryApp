@@ -150,7 +150,11 @@ const CustomeDrawerContent = ({navigation}) => {
           />
         </View>
         <View style={{marginBottom: SIZES.padding}}>
-          <CustomeDrawerItem label={'Logout'} icon={icons.logout} />
+          <CustomeDrawerItem
+            label={'Logout'}
+            icon={icons.logout}
+            onPress={() => navigation.navigate('SignIn')}
+          />
         </View>
       </View>
     </DrawerContentScrollView>
