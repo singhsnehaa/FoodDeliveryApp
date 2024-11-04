@@ -20,7 +20,7 @@ const SignIn = ({navigation}) => {
   const [saveMe, setSaveMe] = useState(false);
 
   const isEnableSignIn = () =>
-    email != '' && password != '' && emailError == '';
+    email != '' && password != '' && emailError == '' && passwordError == '';
 
   const handleSubmit = (email, password) => {
     if (email === 'test@gmail.com' && password === '123456789') {
