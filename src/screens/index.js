@@ -31,6 +31,9 @@ import SignUp from './authentication/SignUp';
 // Otp
 import Otp from './authentication/Otp';
 
+// ForgotPassword
+import ForgotPassword from './authentication/ForgotPassword';
+
 export {
   MainLayout,
   Home,
@@ -44,4 +47,5 @@ export {
   AuthLayout,
   SignUp,
   Otp,
+  ForgotPassword,
 };

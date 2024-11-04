@@ -66,7 +66,7 @@ const Otp = ({navigation}) => {
       <TextButton
         label="Continue"
         buttonContainerStyle={styles.continueBtn}
-        onPress={() => console.log('Continue OTP Btn clicked')}
+        onPress={() => navigation?.navigate('Home')}
       />
 
       <View style={styles.innerFooterWrap}>
