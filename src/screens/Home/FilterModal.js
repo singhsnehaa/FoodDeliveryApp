@@ -151,6 +151,8 @@ const FilterModal = ({isVisible, onClose}) => {
                   ...FONTS.body3,
                 }}
                 icon={icons.star}
+                iocnPosition={'RIGHT'}
+                iconStyle={{tintColor: null}}
                 containerStyle={{
                   ...styles.ratingContainerStyle,
                   backgroundColor:

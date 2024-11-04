@@ -1,6 +1,11 @@
 import React, {useState, useRef} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {CustomeSwitch, FormInput, TextButton} from '../../components';
+import {
+  CustomeSwitch,
+  FormInput,
+  TextButton,
+  TextIconButton,
+} from '../../components';
 
 import {COLORS, FONTS, SIZES, constants, icons, images} from '../../constants';
 import AuthLayout from './AuthLayout';
@@ -114,6 +119,31 @@ const SignIn = navigation => {
             onPress={() => navigation.navigate('SignUp')}
           />
         </View>
+
+        {/* Footer Section */}
+
+        <View style={{position: 'absolute', bottom: 5, left: 0, right: 0}}>
+          {/* Facebook login */}
+          <TextIconButton
+            label={'Continue with facebook'}
+            labelStyle={{color: COLORS.white, marginLeft: SIZES.radius}}
+            icon={icons.fb}
+            iocnPosition={'LEFT'}
+            containerStyle={styles.fbContainerStyle}
+            onPress={() => console.log('Facebook login')}
+          />
+
+          {/* google login */}
+          <TextIconButton
+            label={'Continue with Google'}
+            labelStyle={{marginLeft: SIZES.radius}}
+            icon={icons.google}
+            iconStyle={{tintColor: null}}
+            iocnPosition={'LEFT'}
+            containerStyle={styles.googleContainerStyle}
+            onPress={() => console.log('Google login')}
+          />
+        </View>
       </View>
     </AuthLayout>
   );
@@ -151,5 +181,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: SIZES.radius,
     justifyContent: 'center',
+  },
+  fbContainerStyle: {
+    height: 50,
+    alignItems: 'center',
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.blue,
+  },
+  googleContainerStyle: {
+    marginTop: SIZES.radius,
+    height: 50,
+    alignItems: 'center',
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.lightGray2,
   },
 });
