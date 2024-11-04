@@ -8,10 +8,14 @@ import {utils} from '../../utils';
 
 const SignIn = navigation => {
   const [email, setEmail] = useState('');
-  const [passeord, setPassword] = useState('');
+  const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [showPass, setShowPass] = useState(false);
   const [saveMe, setSaveMe] = useState(false);
+
+  const isEnableSignIn = () =>
+    email != '' && password != '' && emailError == '';
+
   return (
     <AuthLayout
       title={'Lets Sign you in'}
@@ -85,7 +89,31 @@ const SignIn = navigation => {
 
         {/* sign in */}
 
+        <TextButton
+          label="Sign In"
+          disabled={isEnableSignIn() ? false : true}
+          buttonContainerStyle={{
+            ...styles.signInBtn,
+            backgroundColor: isEnableSignIn()
+              ? COLORS.primary
+              : COLORS.transparentPrimray,
+          }}
+          //   onPress={() => navigation.navigate('ForgotPassword')}
+        />
+
         {/* sign UP */}
+        <View style={styles.SignUpContainer}>
+          <Text style={{color: COLORS.darkGray, ...FONTS.body3}}>
+            Dont't have an account?
+          </Text>
+
+          <TextButton
+            label="Sign Up"
+            labelStyle={{color: COLORS.primary, ...FONTS.h3}}
+            buttonContainerStyle={{marginLeft: 3, backgroundColor: null}}
+            onPress={() => navigation.navigate('SignUp')}
+          />
+        </View>
       </View>
     </AuthLayout>
   );
@@ -111,5 +139,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: SIZES.radius,
     justifyContent: 'space-between',
+  },
+  signInBtn: {
+    height: 55,
+    alignItems: 'center',
+    marginTop: SIZES.padding,
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.primary,
+  },
+  SignUpContainer: {
+    flexDirection: 'row',
+    marginTop: SIZES.radius,
+    justifyContent: 'center',
   },
 });
