@@ -151,7 +151,7 @@ const SignUp = ({navigation}) => {
 
         {/* Footer Section */}
 
-        <View style={{position: 'absolute', bottom: 5, left: 0, right: 0}}>
+        <View style={styles.footerWrap}>
           {/* Facebook login */}
           <TextIconButton
             label={'Continue with facebook'}
@@ -208,6 +208,10 @@ const styles = StyleSheet.create({
     marginTop: SIZES.radius,
     justifyContent: 'center',
   },
+  footerWrap: {
+    marginTop: 40,
+  },
+
   fbContainerStyle: {
     height: 50,
     alignItems: 'center',

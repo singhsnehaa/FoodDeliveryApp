@@ -1,5 +1,12 @@
 import React, {useState, useRef} from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
 import {
   CustomeSwitch,
   FormInput,
@@ -130,7 +137,7 @@ const SignIn = ({navigation}) => {
 
         {/* Footer Section */}
 
-        <View style={{position: 'absolute', bottom: 5, left: 0, right: 0}}>
+        <View style={styles.footerWrap}>
           {/* Facebook login */}
           <TextIconButton
             label={'Continue with facebook'}
@@ -190,6 +197,10 @@ const styles = StyleSheet.create({
     marginTop: SIZES.radius,
     justifyContent: 'center',
   },
+  footerWrap: {
+    marginTop: 40,
+  },
+
   fbContainerStyle: {
     height: 50,
     alignItems: 'center',

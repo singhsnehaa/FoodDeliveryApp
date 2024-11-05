@@ -8,7 +8,10 @@ const AuthLayout = ({title, subTitle, titleContainerStyle, children}) => {
     <View style={styles.container}>
       <KeyboardAwareScrollView
         keyboardDismissMode="on-drag"
-        contentContainerStyle={{flex: 1, paddingHorizontal: SIZES.padding}}>
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingHorizontal: SIZES.padding,
+        }}>
         {/* App Icon */}
 
         <View style={{alignItems: 'center'}}>

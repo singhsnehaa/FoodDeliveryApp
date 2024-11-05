@@ -2,7 +2,11 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Food Delivery App
 
-> **Note**: The Food Delivery App enables users to conveniently order food with features such as My Wallet, Notifications, Favorites, Order Tracking, Settings, Invite a Friend, Help Center, and Logout. Users can explore options like Popular Near You, Trending Food, and Recommended Food. Additionally, they can view details including food distance, ratings, delivery time, and tags.
+> **Note**: The Food Delivery App allows users to easily order food and includes features such as My Wallet, Notifications, Favorites, Order Tracking, Settings, Invite a Friend, Help Center, and Logout.
+
+Upon opening the app, users are greeted with an **onboarding screen** offering a Next and Skip option. By clicking Next, users can preview the app’s key features before reaching the **Authentication screen** (Sign In, Sign Up, OTP, Forgot Password), depending on their login status. New users can explore the full onboarding experience, while existing users may skip it to navigate directly to the main or authentication screen.
+
+Within the app, users can explore food options like Popular Near You, Trending Food, and Recommended Food, along with viewing details such as distance, ratings, delivery time, and tags.
 
 ## Step 1: Start the Metro Server
 
