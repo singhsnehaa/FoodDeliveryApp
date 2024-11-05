@@ -67,6 +67,7 @@ You've successfully run and modified your React Native App. :partying_face:
 - [Navigation] - Drawer-tabs bavigation (v6.7.2) and stack navigation (v6.4.1).
 - [React-Redux] - for State management using @reduxjs/toolkit (v2.3.0), react-redux (v9.1.2)
 - [Multi-slider] - react-native-multi-slide (v0.3.6). for sider to see distance and price range.
+- [Otp-Input] - @twotalltotems/react-native-otp-input (v1.3.11). for OTP Input Box
 - [Javascript] - For implementing logic.
 - [git-hub] - For code version control.
 
@@ -76,6 +77,8 @@ You've successfully run and modified your React Native App. :partying_face:
 - Bottom Tabs Animation(without 3rd party plugin)
 - Dynamic Filter bottom Modal with animation (without 3rd party plugin)
 - Home: Dynamic top bar tabs that adjust based on text width, with animation used in the FlatList.
+- Splash screen implimented
+- dynamic custome onbbboarding screen (for intro abbout application)
 
 ## APK File for Testing:
 
@@ -83,4 +86,8 @@ Download the APK file here:
 
 # Screenshots of the app:
 
-1. <img src="src/sampleImages/home-screen.png" width="300" /> 2. <img src="src/sampleImages/animated-drawer-menu.png" width="300" /> 3 .<img src="src/sampleImages/bottom-modal.png" width="300" />
+<img src="src/sampleImages/onBoarding-1.png" width="300" /> <img src="src/sampleImages/onBoarding-2.png" width="300" />
+<img src="src/sampleImages/onBoarding-3.png" width="300" /> <img src="src/sampleImages/SignIn.png" width="300" />
+<img src="src/sampleImages/SignUp.png" width="300" /> <img src="src/sampleImages/otp.png" width="300" />
+<img src="src/sampleImages/forgotPassword.png" width="300" /> <img src="src/sampleImages/home-screen.png" width="300" />  
+<img src="src/sampleImages/animated-drawer-menu.png" width="300" /> <img src="src/sampleImages/bottom-modal.png" width="300" />
