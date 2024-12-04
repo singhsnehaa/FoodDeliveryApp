@@ -19,7 +19,7 @@ const StackNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={'OnBoarding'}>
+        initialRouteName={'FoodDetail'}>
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
         <Stack.Screen name="Home" component={CustomeDrawer} />
         <Stack.Screen name="SignIn" component={SignIn} />

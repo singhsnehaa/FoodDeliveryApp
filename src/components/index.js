@@ -10,6 +10,7 @@ import TextIconButton from './TextIconButton';
 import FormInput from './FormInput';
 import CustomeSwitch from './CustomeSwitch';
 import CardQuantityButton from './CardQuantityButton';
+import IconLabel from './IconLabel';
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   FormInput,
   CustomeSwitch,
   CardQuantityButton,
+  IconLabel,
 };
