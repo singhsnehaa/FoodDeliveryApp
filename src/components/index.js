@@ -11,6 +11,7 @@ import FormInput from './FormInput';
 import CustomeSwitch from './CustomeSwitch';
 import CardQuantityButton from './CardQuantityButton';
 import IconLabel from './IconLabel';
+import LineDivider from './LineDivider';
 
 export {
   Header,
@@ -26,4 +27,5 @@ export {
   CustomeSwitch,
   CardQuantityButton,
   IconLabel,
+  LineDivider,
 };

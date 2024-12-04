@@ -13,6 +13,7 @@ import {
   Header,
   IconButton,
   IconLabel,
+  LineDivider,
   TabButton,
   TextButton,
 } from '../../components';
@@ -26,9 +27,11 @@ import {
   images,
   dummyData,
 } from '../../constants';
+import Ratings from '../../components/Ratings';
 
 const FoodDetail = ({navigation}) => {
   const [foodItem, setFoodItem] = useState(dummyData.vegBiryani);
+  const [selectedSize, setSelectedSize] = useState('');
 
   const renderHeader = () => {
     return (
@@ -126,17 +129,48 @@ const FoodDetail = ({navigation}) => {
                     key={`Sizes-${index}`}
                     label={item.label}
                     labelStyle={{
-                      color: COLORS.gray2,
+                      color:
+                        selectedSize == item.id ? COLORS.white : COLORS.gray2,
                       ...FONTS.body3,
                     }}
-                    buttonContainerStyle={styles.sizeButtonContainerSty}
-                    onPress={() => setDeliveryTime(item.id)}
+                    buttonContainerStyle={{
+                      ...styles.sizeButtonContainerSty,
+                      borderColor:
+                        selectedSize == item.id ? COLORS.primary : COLORS.gray2,
+                      backgroundColor:
+                        selectedSize == item.id ? COLORS.primary : null,
+                    }}
+                    onPress={() => setSelectedSize(item.id)}
                   />
                 );
               })}
             </View>
           </View>
         </View>
+      </View>
+    );
+  };
+
+  const renderRestaurent = () => {
+    return (
+      <View style={styles.restaurantContainer}>
+        <Image style={styles.restaurantLeftImage} source={images.profile} />
+
+        {/* Info */}
+        <View
+          style={{
+            flex: 1,
+            marginLeft: SIZES.radius,
+            justifyContent: 'center',
+          }}>
+          <Text styles={{...FONTS.h33}}> By Sneha Singh </Text>
+          <Text styles={{color: COLORS.gray, ...FONTS.body4}}>
+            1.2 KM away from you{' '}
+          </Text>
+        </View>
+
+        {/* Rattings */}
+        <Ratings rating={4} iconStyle={{marginLeft: 3}} />
       </View>
     );
   };
@@ -150,9 +184,14 @@ const FoodDetail = ({navigation}) => {
       <ScrollView>
         {/* foodDetails sectiom */}
         {renderDetails()}
+        <LineDivider />
+
         {/* restaurent sectiom */}
+        {renderRestaurent()}
       </ScrollView>
+
       {/* Footer */}
+      <LineDivider />
     </View>
   );
 };
@@ -210,7 +249,16 @@ const styles = StyleSheet.create({
     margin: SIZES.base,
     borderWidth: 1,
     borderRadius: SIZES.radius,
-    borderColor: COLORS.gray2,
-    backgroundColor: null,
+  },
+  restaurantContainer: {
+    flexDirection: 'row',
+    marginVertical: SIZES.padding,
+    paddingHorizontal: SIZES.padding,
+    alignItems: 'center',
+  },
+  restaurantLeftImage: {
+    height: 50,
+    width: 50,
+    borderRadius: SIZES.radius,
   },
 });
