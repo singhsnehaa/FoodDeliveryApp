@@ -25,6 +25,7 @@ const google = require('../assets/icons/google.png');
 const correct = require('../assets/icons/correct.png');
 const eye = require('../assets/icons/eye.png');
 const eye_close = require('../assets/icons/eye_close.png');
+const back = require('../assets/icons/back.png');
 
 export default {
   coupon,
@@ -54,4 +55,5 @@ export default {
   correct,
   eye,
   eye_close,
+  back,
 };

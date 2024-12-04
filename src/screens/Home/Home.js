@@ -8,6 +8,7 @@ import {
   Image,
   TextInput,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {
   COLORS,
   FONTS,
@@ -26,6 +27,8 @@ const Home = () => {
   const [recommended, setRecommend] = useState([]);
   const [popular, setPopular] = useState([]);
   const [showFilterModal, setShowFilterModal] = useState(false);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     handleChangeCategory(selectedCategoryId, selectedMenuType);
@@ -133,7 +136,7 @@ const Home = () => {
                   marginRight:
                     index == recommended.length - 1 ? SIZES.padding : 0,
                 }}
-                onPress={() => console.log('Popular FoodCart')}
+                onPress={() => navigation.navigate('FoodDetail')}
               />
             );
           }}

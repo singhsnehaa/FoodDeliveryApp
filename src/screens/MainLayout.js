@@ -178,7 +178,26 @@ const MainLayout = ({navigation}) => {
     <Animated.View style={[styles.container, animatedStyle]}>
       {/* Header */}
 
-      <Header title={selectedDrawerTab.toUpperCase()} />
+      <Header
+        title={selectedDrawerTab.toUpperCase()}
+        leftComponent={
+          <TouchableOpacity
+            style={styles.leftHeaderComponentWrap}
+            onPress={() => navigation.openDrawer()}>
+            <Image source={icons.menu} />
+          </TouchableOpacity>
+        }
+        rightComponent={
+          <TouchableOpacity
+            style={styles.rightHeaderComponentWrap}
+            onPress={() => navigation.openDrawer()}>
+            <Image
+              source={dummyData.myProfile?.profile_image}
+              style={styles.HeaderProfileImage}
+            />
+          </TouchableOpacity>
+        }
+      />
 
       {/* Contents */}
       <View style={styles.contentWrap}>
@@ -303,5 +322,26 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: COLORS.white,
+  },
+
+  //header
+  leftHeaderComponentWrap: {
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: COLORS.gray2,
+    borderRadius: SIZES.radius,
+  },
+  rightHeaderComponentWrap: {
+    borderRadius: SIZES.radius,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  HeaderProfileImage: {
+    width: 40,
+    height: 40,
+    borderRadius: SIZES.radius,
   },
 });

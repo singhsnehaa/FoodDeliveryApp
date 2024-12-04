@@ -40,6 +40,7 @@ const SignIn = ({navigation}) => {
       title={'Lets Sign you in'}
       subTitle="Welcome back, you have been missed">
       <View style={{flex: 1, marginTop: SIZES.padding * 2}}>
+        <Text>Note: Email: test@gmail.com , Password: 123456789 </Text>
         {/* Form Input Section */}
         <FormInput
           label={'Email'}

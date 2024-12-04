@@ -34,6 +34,9 @@ import Otp from './authentication/Otp';
 // ForgotPassword
 import ForgotPassword from './authentication/ForgotPassword';
 
+// FoodDetail
+import FoodDetail from './food/FoodDetail';
+
 export {
   MainLayout,
   Home,
@@ -48,4 +51,5 @@ export {
   SignUp,
   Otp,
   ForgotPassword,
+  FoodDetail,
 };

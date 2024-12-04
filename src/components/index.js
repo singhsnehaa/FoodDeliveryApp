@@ -9,6 +9,7 @@ import TextButton from './TextButton';
 import TextIconButton from './TextIconButton';
 import FormInput from './FormInput';
 import CustomeSwitch from './CustomeSwitch';
+import CardQuantityButton from './CardQuantityButton';
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   TextIconButton,
   FormInput,
   CustomeSwitch,
+  CardQuantityButton,
 };

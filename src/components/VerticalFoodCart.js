@@ -2,9 +2,11 @@ import React from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {COLORS, FONTS, SIZES, icons, constants, dummyData} from '../constants';
 
-const VerticalFoodCart = ({item, containerStyle}) => {
+const VerticalFoodCart = ({item, containerStyle, onPress}) => {
   return (
-    <TouchableOpacity style={[styles.foodCartContainer, containerStyle]}>
+    <TouchableOpacity
+      style={[styles.foodCartContainer, containerStyle]}
+      onPress={onPress}>
       {/* Calories & faavourite */}
 
       <View style={{flexDirection: 'row'}}>
