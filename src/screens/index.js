@@ -37,6 +37,9 @@ import ForgotPassword from './authentication/ForgotPassword';
 // FoodDetail
 import FoodDetail from './food/FoodDetail';
 
+// MyCart
+import MyCart from './Cart/MyCart';
+
 export {
   MainLayout,
   Home,
@@ -52,4 +55,5 @@ export {
   Otp,
   ForgotPassword,
   FoodDetail,
+  MyCart,
 };

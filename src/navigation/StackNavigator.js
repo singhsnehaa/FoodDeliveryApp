@@ -9,6 +9,7 @@ import {
   SignIn,
   SignUp,
   FoodDetail,
+  MyCart,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -27,6 +28,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Otp" component={Otp} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="FoodDetail" component={FoodDetail} />
+        <Stack.Screen name="MyCart" component={MyCart} />
       </Stack.Navigator>
     </NavigationContainer>
   );

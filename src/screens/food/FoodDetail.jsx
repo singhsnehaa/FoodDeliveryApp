@@ -1,13 +1,5 @@
 import React, {useState, useRef} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-  ScrollView,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
 import {
   CardQuantityButton,
   Header,
@@ -15,19 +7,10 @@ import {
   IconLabel,
   LineDivider,
   StepperInput,
-  TabButton,
   TextButton,
 } from '../../components';
 
-import {
-  COLORS,
-  FONTS,
-  SIZES,
-  constants,
-  icons,
-  images,
-  dummyData,
-} from '../../constants';
+import {COLORS, FONTS, SIZES, icons, images, dummyData} from '../../constants';
 import Ratings from '../../components/Ratings';
 
 const FoodDetail = ({navigation}) => {
