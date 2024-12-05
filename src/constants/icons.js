@@ -28,6 +28,8 @@ const eye_close = require('../assets/icons/eye_close.png');
 const back = require('../assets/icons/back.png');
 const clock = require('../assets/icons/clock.png');
 const dollar = require('../assets/icons/dollar.png');
+const plus = require('../assets/icons/plus.png');
+const minus = require('../assets/icons/minus.png');
 
 export default {
   coupon,
@@ -60,4 +62,6 @@ export default {
   back,
   clock,
   dollar,
+  plus,
+  minus,
 };

@@ -14,6 +14,7 @@ import {
   IconButton,
   IconLabel,
   LineDivider,
+  StepperInput,
   TabButton,
   TextButton,
 } from '../../components';
@@ -32,6 +33,7 @@ import Ratings from '../../components/Ratings';
 const FoodDetail = ({navigation}) => {
   const [foodItem, setFoodItem] = useState(dummyData.vegBiryani);
   const [selectedSize, setSelectedSize] = useState('');
+  const [qty, setQty] = useState(1);
 
   const renderHeader = () => {
     return (
@@ -175,6 +177,31 @@ const FoodDetail = ({navigation}) => {
     );
   };
 
+  const renderFooter = () => {
+    return (
+      <View style={styles.footerContainer}>
+        {/* Steeper input */}
+        <StepperInput
+          value={qty}
+          onMinus={() => {
+            if (qty > 1) {
+              setQty(qty - 1);
+            }
+          }}
+          onAdd={() => setQty(qty + 1)}
+        />
+
+        {/* Text button right */}
+        <TextButton
+          label2="Buy Now"
+          label="$15.99"
+          buttonContainerStyle={styles.footerBtn}
+          onPress={() => navigation.navigate('MyCart')}
+        />
+      </View>
+    );
+  };
+
   return (
     <View style={{flex: 1, backgroundColor: COLORS.white}}>
       {/* Header */}
@@ -192,6 +219,7 @@ const FoodDetail = ({navigation}) => {
 
       {/* Footer */}
       <LineDivider />
+      {renderFooter()}
     </View>
   );
 };
@@ -260,5 +288,21 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: SIZES.radius,
+  },
+  footerContainer: {
+    flexDirection: 'row',
+    height: 120,
+    alignItems: 'center',
+    paddingHorizontal: SIZES.padding,
+    paddingBottom: SIZES.radius,
+  },
+  footerBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    height: 60,
+    marginLeft: SIZES.radius,
+    paddingHorizontal: SIZES.radius,
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.primary,
   },
 });

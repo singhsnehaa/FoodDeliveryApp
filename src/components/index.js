@@ -12,6 +12,7 @@ import CustomeSwitch from './CustomeSwitch';
 import CardQuantityButton from './CardQuantityButton';
 import IconLabel from './IconLabel';
 import LineDivider from './LineDivider';
+import StepperInput from './StepperInput';
 
 export {
   Header,
@@ -28,4 +29,5 @@ export {
   CardQuantityButton,
   IconLabel,
   LineDivider,
+  StepperInput,
 };
