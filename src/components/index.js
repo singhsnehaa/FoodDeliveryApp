@@ -13,6 +13,7 @@ import CardQuantityButton from './CardQuantityButton';
 import IconLabel from './IconLabel';
 import LineDivider from './LineDivider';
 import StepperInput from './StepperInput';
+import Ratings from './Ratings';
 
 export {
   Header,
@@ -30,4 +31,5 @@ export {
   IconLabel,
   LineDivider,
   StepperInput,
+  Ratings,
 };

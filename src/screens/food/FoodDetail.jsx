@@ -8,10 +8,10 @@ import {
   LineDivider,
   StepperInput,
   TextButton,
+  Ratings,
 } from '../../components';
 
 import {COLORS, FONTS, SIZES, icons, images, dummyData} from '../../constants';
-import Ratings from '../../components/Ratings';
 
 const FoodDetail = ({navigation}) => {
   const [foodItem, setFoodItem] = useState(dummyData.vegBiryani);

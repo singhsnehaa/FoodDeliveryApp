@@ -3,9 +3,9 @@ import {View, Text, StyleSheet} from 'react-native';
 import {COLORS, FONTS, icons, SIZES} from '../constants';
 import IconButton from './IconButton';
 
-const StepperInput = ({value = 1, containerStyle, onAdd, onMinus}) => {
+const StepperInput = ({value = 1, containerStyles, onAdd, onMinus}) => {
   return (
-    <View style={{...styles.container, containerStyle}}>
+    <View style={{...styles.container, ...containerStyles}}>
       {/* minus button */}
       <IconButton
         containerStyle={styles.minusContainer}
