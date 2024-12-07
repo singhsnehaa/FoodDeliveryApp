@@ -14,6 +14,7 @@ import IconLabel from './IconLabel';
 import LineDivider from './LineDivider';
 import StepperInput from './StepperInput';
 import Ratings from './Ratings';
+import FooterTotal from './FooterTotal';
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   LineDivider,
   StepperInput,
   Ratings,
+  FooterTotal,
 };
