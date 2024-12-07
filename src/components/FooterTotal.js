@@ -53,7 +53,7 @@ const FooterTotal = ({subbTotal, shippingFee, total, onPress}) => {
         <TextButton
           label={'Place your Order'}
           buttonContainerStyle={styles.buttonContainer}
-          onPress={() => onPress}
+          onPress={() => onPress()}
         />
       </View>
     </View>

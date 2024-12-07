@@ -10,6 +10,7 @@ import {
   SignUp,
   FoodDetail,
   MyCart,
+  MyCard,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ const StackNavigator = () => {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="FoodDetail" component={FoodDetail} />
         <Stack.Screen name="MyCart" component={MyCart} />
+        <Stack.Screen name="MyCard" component={MyCard} />
       </Stack.Navigator>
     </NavigationContainer>
   );

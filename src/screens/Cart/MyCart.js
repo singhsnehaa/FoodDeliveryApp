@@ -119,7 +119,7 @@ const MyCart = ({navigation}) => {
         subbTotal={37.97}
         shippingFee={0.0}
         total={37.97}
-        onPress={() => console.log('Place ypur order')}
+        onPress={() => navigation.navigate('MyCard')}
       />
     </View>
   );

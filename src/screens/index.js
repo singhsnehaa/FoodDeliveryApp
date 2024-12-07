@@ -40,6 +40,9 @@ import FoodDetail from './food/FoodDetail';
 // MyCart
 import MyCart from './Cart/MyCart';
 
+// MyCard
+import MyCard from './card/MyCard';
+
 export {
   MainLayout,
   Home,
@@ -56,4 +59,5 @@ export {
   ForgotPassword,
   FoodDetail,
   MyCart,
+  MyCard,
 };
