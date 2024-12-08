@@ -10,9 +10,11 @@ import {
   Header,
   IconButton,
   StepperInput,
+  TextButton,
 } from '../../components';
+import SignIn from '../authentication/SignIn';
 
-const MyCard = () => {
+const MyCard = ({navigation}) => {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const renderHeader = () => {
@@ -39,7 +41,7 @@ const MyCard = () => {
         {dummyData.myCards.map((item, index) => {
           return (
             <CardItem
-              key={`MyCard- ${item.id}`}
+              key={`MyCard-${item.id}`}
               isSelected={
                 `${selectedCard?.key}-${selectedCard?.id}` ==
                 `MyCard-${item.id}`
@@ -53,6 +55,51 @@ const MyCard = () => {
     );
   };
 
+  function renderAddNewCard() {
+    return (
+      <View style={{marginTop: SIZES.padding}}>
+        <Text style={{...FONTS.h3}}>Add New Card</Text>
+        {dummyData.allCards.map((item, index) => {
+          return (
+            <CardItem
+              key={`NewCard-${item.id}`}
+              isSelected={
+                `${selectedCard?.key}-${selectedCard?.id}` ==
+                `NewCard-${item.id}`
+              }
+              item={item}
+              onPress={() => setSelectedCard({...item, key: 'NewCard'})}
+            />
+          );
+        })}
+      </View>
+    );
+  }
+
+  function renderFooter() {
+    const handleSubmit = () => {
+      if (selectedCard?.key == 'NewCard') {
+        navigation.navigate('AddCard', {selectedCard: selectedCard});
+      } else {
+        navigation.navigate('Checkout', {selectedCard: selectedCard});
+      }
+    };
+    return (
+      <View style={styles.footerContainer}>
+        <TextButton
+          label={selectedCard?.key == 'NewCard' ? 'Add' : 'Place your Order'}
+          disabled={selectedCard == null}
+          buttonContainerStyle={{
+            ...styles.saveCardBtn,
+            backgroundColor:
+              selectedCard == null ? COLORS.gray : COLORS.primary,
+          }}
+          onPress={() => handleSubmit()}
+        />
+      </View>
+    );
+  }
+
   return (
     <View style={{flex: 1, backgroundColor: COLORS.white}}>
       {/* Header */}
@@ -62,10 +109,13 @@ const MyCard = () => {
       <ScrollView contentContainerStyle={styles.cardContainer}>
         {/* my card */}
         {renderMyCard()}
+
         {/* add new card */}
+        {renderAddNewCard()}
       </ScrollView>
 
-      {/* Foter tatal */}
+      {/* Footer */}
+      {renderFooter()}
     </View>
   );
 };
@@ -94,5 +144,14 @@ const styles = StyleSheet.create({
     marginTop: SIZES.radius,
     paddingHorizontal: SIZES.padding,
     paddingBottom: SIZES.radius,
+  },
+  footerContainer: {
+    paddingTop: SIZES.radius,
+    paddingBottom: SIZES.padding,
+    paddingHorizontal: SIZES.padding,
+  },
+  saveCardBtn: {
+    height: 60,
+    borderRadius: SIZES.radius,
   },
 });
