@@ -13,6 +13,7 @@ import {
   MyCard,
   AddCard,
   Checkout,
+  Success,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -35,6 +36,11 @@ const StackNavigator = () => {
         <Stack.Screen name="MyCard" component={MyCard} />
         <Stack.Screen name="AddCard" component={AddCard} />
         <Stack.Screen name="Checkout" component={Checkout} />
+        <Stack.Screen
+          name="Success"
+          component={Success}
+          options={{gestureEnabled: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

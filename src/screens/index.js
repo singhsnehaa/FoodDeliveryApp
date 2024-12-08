@@ -49,6 +49,9 @@ import AddCard from './card/AddCard';
 // Checkout
 import Checkout from './Cart/Checkout';
 
+// Success
+import Success from './Cart/Success';
+
 export {
   MainLayout,
   Home,
@@ -68,4 +71,5 @@ export {
   MyCard,
   AddCard,
   Checkout,
+  Success,
 };
