@@ -33,6 +33,7 @@ const minus = require('../assets/icons/minus.png');
 const delete_icon = require('../assets/icons/delete.png');
 const check_off = require('../assets/icons/check_off.png');
 const check_on = require('../assets/icons/check_on.png');
+const discount = require('../assets/icons/discount.png');
 
 export default {
   coupon,
@@ -70,4 +71,5 @@ export default {
   delete_icon,
   check_off,
   check_on,
+  discount,
 };

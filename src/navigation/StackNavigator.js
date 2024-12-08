@@ -12,6 +12,7 @@ import {
   MyCart,
   MyCard,
   AddCard,
+  Checkout,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -33,6 +34,7 @@ const StackNavigator = () => {
         <Stack.Screen name="MyCart" component={MyCart} />
         <Stack.Screen name="MyCard" component={MyCard} />
         <Stack.Screen name="AddCard" component={AddCard} />
+        <Stack.Screen name="Checkout" component={Checkout} />
       </Stack.Navigator>
     </NavigationContainer>
   );
