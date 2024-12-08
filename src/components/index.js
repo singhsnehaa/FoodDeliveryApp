@@ -15,6 +15,7 @@ import LineDivider from './LineDivider';
 import StepperInput from './StepperInput';
 import Ratings from './Ratings';
 import FooterTotal from './FooterTotal';
+import CardItem from './CardItem';
 
 export {
   Header,
@@ -34,4 +35,5 @@ export {
   StepperInput,
   Ratings,
   FooterTotal,
+  CardItem,
 };

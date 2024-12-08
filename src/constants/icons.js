@@ -31,6 +31,8 @@ const dollar = require('../assets/icons/dollar.png');
 const plus = require('../assets/icons/plus.png');
 const minus = require('../assets/icons/minus.png');
 const delete_icon = require('../assets/icons/delete.png');
+const check_off = require('../assets/icons/check_off.png');
+const check_on = require('../assets/icons/check_on.png');
 
 export default {
   coupon,
@@ -66,4 +68,6 @@ export default {
   plus,
   minus,
   delete_icon,
+  check_off,
+  check_on,
 };

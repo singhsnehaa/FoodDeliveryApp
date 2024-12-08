@@ -21,7 +21,7 @@ const StackNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={'OnBoarding'}>
+        initialRouteName={'MyCard'}>
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
         <Stack.Screen name="Home" component={CustomeDrawer} />
         <Stack.Screen name="SignIn" component={SignIn} />
