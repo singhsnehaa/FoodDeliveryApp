@@ -16,6 +16,8 @@ import StepperInput from './StepperInput';
 import Ratings from './Ratings';
 import FooterTotal from './FooterTotal';
 import CardItem from './CardItem';
+import FormInputCheck from './FormInputCheck';
+import RadioButton from './RadioButton';
 
 export {
   Header,
@@ -36,4 +38,6 @@ export {
   Ratings,
   FooterTotal,
   CardItem,
+  FormInputCheck,
+  RadioButton,
 };

@@ -11,6 +11,7 @@ import {
   FoodDetail,
   MyCart,
   MyCard,
+  AddCard,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -31,6 +32,7 @@ const StackNavigator = () => {
         <Stack.Screen name="FoodDetail" component={FoodDetail} />
         <Stack.Screen name="MyCart" component={MyCart} />
         <Stack.Screen name="MyCard" component={MyCard} />
+        <Stack.Screen name="AddCard" component={AddCard} />
       </Stack.Navigator>
     </NavigationContainer>
   );

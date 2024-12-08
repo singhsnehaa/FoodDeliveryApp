@@ -4,6 +4,7 @@ import {COLORS, dummyData, FONTS, icons, SIZES} from '../constants';
 
 const FormInput = ({
   containerStyle,
+  inputContainerStyle,
   label,
   placeholder,
   inputSyle,
@@ -15,6 +16,7 @@ const FormInput = ({
   autoCompleteType = 'off',
   autoCapitalize = 'none',
   errorMsg = '',
+  maxLength,
 }) => {
   return (
     <View style={{...containerStyle}}>
@@ -25,7 +27,7 @@ const FormInput = ({
       </View>
 
       {/* Text Input Section */}
-      <View style={styles.textInputWraper}>
+      <View style={{...styles.textInputWraper, ...inputContainerStyle}}>
         {prependComponent}
         <TextInput
           style={{flex: 1, ...inputSyle}}
@@ -35,6 +37,7 @@ const FormInput = ({
           keyboardType={keyboardType}
           autoCompleteType={autoCompleteType}
           autoCapitalize={autoCapitalize}
+          maxLength={maxLength}
           onChangeText={text => onChange(text)}
         />
         {appendComponent}
@@ -48,9 +51,9 @@ export default FormInput;
 const styles = StyleSheet.create({
   textInputWraper: {
     flexDirection: 'row',
-    height: 55,
+    height: SIZES.height > 800 ? 55 : 45,
     paddingHorizontal: SIZES.padding,
-    marginTop: SIZES.base,
+    marginTop: SIZES.height > 800 ? SIZES.base : 0,
     borderRadius: SIZES.radius,
     backgroundColor: COLORS.lightGray2,
   },
