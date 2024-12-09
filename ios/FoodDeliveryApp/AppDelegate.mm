@@ -7,6 +7,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [GMSServices provideAPIKey:@"AIzaSyAFpfFxmiIRbuAgXpxYNp0uGOSspPq-a0w"];
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"FoodDeliveryApp", nil);
   self.moduleName = @"FoodDeliveryApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.

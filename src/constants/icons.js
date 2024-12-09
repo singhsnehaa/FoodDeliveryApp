@@ -37,6 +37,11 @@ const discount = require('../assets/icons/discount.png');
 const check_circle = require('../assets/icons/check_circle.png');
 const dotted_line = require('../assets/icons/dotted_line.png');
 const map = require('../assets/icons/map.png');
+const navigator1 = require('../assets/icons/navigator1.png');
+const location1 = require('../assets/icons/location1.png');
+const globe = require('../assets/icons/globe.png');
+const focus = require('../assets/icons/focus.png');
+const call = require('../assets/icons/call.png');
 
 export default {
   coupon,
@@ -78,4 +83,9 @@ export default {
   check_circle,
   dotted_line,
   map,
+  navigator1,
+  location1,
+  globe,
+  focus,
+  call,
 };

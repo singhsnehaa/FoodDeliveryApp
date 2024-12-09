@@ -15,6 +15,7 @@ import {
   Checkout,
   Success,
   DeliveryStatus,
+  Map,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -47,6 +48,7 @@ const StackNavigator = () => {
           component={DeliveryStatus}
           options={{gestureEnabled: false}}
         />
+        <Stack.Screen name="Map" component={Map} />
       </Stack.Navigator>
     </NavigationContainer>
   );

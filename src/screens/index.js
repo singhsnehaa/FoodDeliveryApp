@@ -53,7 +53,10 @@ import Checkout from './Cart/Checkout';
 import Success from './Cart/Success';
 
 // DeliveryStatus
-import DeliveryStatus from './delivery//DeliveryStatus';
+import DeliveryStatus from './delivery/DeliveryStatus';
+
+// Map
+import Map from './delivery/Map';
 
 export {
   MainLayout,
@@ -76,4 +79,5 @@ export {
   Checkout,
   Success,
   DeliveryStatus,
+  Map,
 };
