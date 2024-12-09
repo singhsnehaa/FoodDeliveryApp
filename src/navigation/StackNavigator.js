@@ -14,6 +14,7 @@ import {
   AddCard,
   Checkout,
   Success,
+  DeliveryStatus,
 } from '../screens';
 
 const Stack = createStackNavigator();
@@ -39,6 +40,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Success"
           component={Success}
+          options={{gestureEnabled: false}}
+        />
+        <Stack.Screen
+          name="DeliveryStatus"
+          component={DeliveryStatus}
           options={{gestureEnabled: false}}
         />
       </Stack.Navigator>

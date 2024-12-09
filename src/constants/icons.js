@@ -34,6 +34,9 @@ const delete_icon = require('../assets/icons/delete.png');
 const check_off = require('../assets/icons/check_off.png');
 const check_on = require('../assets/icons/check_on.png');
 const discount = require('../assets/icons/discount.png');
+const check_circle = require('../assets/icons/check_circle.png');
+const dotted_line = require('../assets/icons/dotted_line.png');
+const map = require('../assets/icons/map.png');
 
 export default {
   coupon,
@@ -72,4 +75,7 @@ export default {
   check_off,
   check_on,
   discount,
+  check_circle,
+  dotted_line,
+  map,
 };

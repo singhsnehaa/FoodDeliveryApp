@@ -52,6 +52,9 @@ import Checkout from './Cart/Checkout';
 // Success
 import Success from './Cart/Success';
 
+// DeliveryStatus
+import DeliveryStatus from './delivery//DeliveryStatus';
+
 export {
   MainLayout,
   Home,
@@ -72,4 +75,5 @@ export {
   AddCard,
   Checkout,
   Success,
+  DeliveryStatus,
 };

@@ -11,7 +11,6 @@ const Success = ({navigation}) => {
         return true;
       },
     );
-
     return () => backHandler.remove();
   }, []);
 
