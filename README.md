@@ -82,8 +82,8 @@ Download the APK file here:
 
 # Screenshots of the app:
 
-<img src="src/sampleImages/onBoarding-1.png" width="250" /> --- <img src="src/sampleImages/onBoarding-2.png" width="250" />
-<img src="src/sampleImages/onBoarding-3.png" width="250" /> <br><br> <img src="src/sampleImages/SignIn.png" width="250" />
+<img src="src/sampleImages/onBoarding-1.png" width="250" /> --- <img src="src/sampleImages/onBoarding-2.png" width="250" /> ---
+<img src="src/sampleImages/onBoarding-3.png" width="250" /> <img src="src/sampleImages/SignIn.png" width="250" /> ---
 <img src="src/sampleImages/SignUp.png" width="250" /> --- <img src="src/sampleImages/otp.png" width="250" />
-<img src="src/sampleImages/forgotPassword.png" width="250" /> &nbsp;&nbsp;&nbsp;&nbsp; <img src="src/sampleImages/home-screen.png" width="250" />  &nbsp;&nbsp;&nbsp;&nbsp;
-<img src="src/sampleImages/animated-drawer-menu.png" width="250" /> &nbsp;&nbsp;&nbsp;&nbsp; <img src="src/sampleImages/bottom-modal.png" width="250" />
+<img src="src/sampleImages/forgotPassword.png" width="250" /> --- <img src="src/sampleImages/home-screen.png" width="250" />  ---
+<img src="src/sampleImages/animated-drawer-menu.png" width="250" />  <img src="src/sampleImages/bottom-modal.png" width="250" /> ---
