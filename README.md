@@ -64,6 +64,8 @@ You've successfully run and modified your React Native App. :partying_face:
 - [React-Redux] - for State management using @reduxjs/toolkit (v2.3.0), react-redux (v9.1.2)
 - [Multi-slider] - react-native-multi-slide (v0.3.6). for sider to see distance and price range.
 - [Otp-Input] - @twotalltotems/react-native-otp-input (v1.3.11). for OTP Input Box
+- [SwipeListView] - react-native-swipe-list-view (v3.2.9) for left swipe and delete the item.
+- [Map] - react-native-maps-directions (v1.9.0) for showing Maps.also follow https://www.byprogrammers.com/2020/11/ how-to-generate-google-maps-api-key-for-mobile-app/ for proper Maps will work.
 - [Javascript] - For implementing logic.
 - [git-hub] - For code version control.
 
@@ -74,11 +76,13 @@ You've successfully run and modified your React Native App. :partying_face:
 - Dynamic Filter bottom Modal with animation (without 3rd party plugin)
 - Home: Dynamic top bar tabs that adjust based on text width, with animation used in the FlatList.
 - Splash screen implimented
-- dynamic custome onbbboarding screen (for intro abbout application)
+- dynamic custome onboarding screen (for intro abbout application)
+- Implimented SwipeListView(for delete) in my cart screen in which user can increase or decrese the cart item. Also they can delete with **left swipe**
+- custome UI for track Order delivery status.
 
 ## APK File for Testing:
 
-Download the APK file here:
+Download the APK file here: /FoodDeliveryApp/android/app/build/outputs/apk/debug/app-debug.apk
 
 # Screenshots of the app:
 
